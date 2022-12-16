@@ -1,0 +1,4 @@
+!# /bin/bash
+
+echo "Stoping Sail"
+vendor/bin/sail down
