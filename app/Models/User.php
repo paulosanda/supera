@@ -41,4 +41,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function vechicles()
+    {
+        return $this->belongsToMany(Vechicle::class, 'user_vechicles', 'user_id', 'vechicle_id');
+    }
 }

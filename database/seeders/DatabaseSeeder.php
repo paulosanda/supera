@@ -14,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::create([
+            'name' => 'user1',
+            'email' => 'user1@gmail.com',
+            'password' => \Hash::make('123456'),
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call([
+            VechicleSeeder::class,
+            UserVechicleSeeder::class,
+            MaintananceSeeder::class,
+        ]);
     }
 }
