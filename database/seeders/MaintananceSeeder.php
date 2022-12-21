@@ -23,7 +23,7 @@ class MaintananceSeeder extends Seeder
         $userVechicles = UserVechicle::all();
 
         foreach ($userVechicles as $uv) {
-            $maintanance = $this->maintanance();
+            $maintanance = $this->maintanancetypes();
             $key = array_rand($maintanance);
 
             $plus = rand(1, 7);
@@ -32,8 +32,9 @@ class MaintananceSeeder extends Seeder
             Maintanance::create([
                 'user_id' => $user->id,
                 'user_vechicle_id' => $uv->id,
+                'vechicle_id' => $uv->vechicle_id,
                 'type_maintanance' => $maintanance[$key],
-                'next_maintance' => $date,
+                'next_maintanance' => $date,
             ]);
         }
     }

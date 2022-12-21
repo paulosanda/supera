@@ -44,6 +44,11 @@ class User extends Authenticatable
 
     public function vechicles()
     {
-        return $this->belongsToMany(Vechicle::class, 'user_vechicles', 'user_id', 'vechicle_id');
+        return $this->belongsToMany(
+            Vechicle::class,
+            'user_vechicles',
+            'user_id',
+            'vechicle_id'
+        )->withPivot('id');
     }
 }

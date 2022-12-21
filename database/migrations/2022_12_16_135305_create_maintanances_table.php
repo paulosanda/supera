@@ -18,8 +18,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('user_vechicle_id')->constrained('user_vechicles')
                 ->onDelete('cascade');
+            $table->foreignId('vechicle_id')->constrained('vechicles');
             $table->string('type_maintanance');
-            $table->date('next_maintance');
+            $table->date('next_maintanance');
             $table->timestamps();
         });
     }
