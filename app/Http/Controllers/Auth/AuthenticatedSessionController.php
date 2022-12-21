@@ -34,8 +34,8 @@ class AuthenticatedSessionController extends Controller
 
         $maintanance = Maintanance::with('vechicles')
             ->where('user_id', Auth::user()->id)
-            ->where('next_maintance', '<=', date('Y-m-d', strtotime("+7 days")))
-            ->orderBy('next_maintance')
+            ->where('next_maintanance', '<=', date('Y-m-d', strtotime("+7 days")))
+            ->orderBy('next_maintanance')
             ->get();
 
         return view('dashboard', compact('maintanance'));

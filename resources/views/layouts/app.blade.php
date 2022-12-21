@@ -13,7 +13,6 @@
          <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
