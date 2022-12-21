@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class MaintananceController extends Controller
 {
+    /**
+     * store
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function store(Request $request)
     {
         $today = date('Y-m-d');
@@ -17,7 +23,7 @@ class MaintananceController extends Controller
             'type_maintanance' => 'required|string',
             'date' => "after:$today|required|date",
         ]);
-        // dd($request->date);
+
         Maintanance::create([
             'user_id' => Auth::user()->id,
             'vechicle_id' => $request->maintanance_vechicle_id,

@@ -37,14 +37,15 @@ class MaintananceModelTest extends TestCase
         $plus = rand(1, 7);
         $date = date('Y-m-d', strtotime("+$plus days"));
 
-        $maintanance = $this->maintanance();
+        $maintanance = $this->maintanancetypes();
         $key = array_rand($maintanance);
 
         Maintanance::create([
             'user_id' => $user->id,
+            'vechicle_id' => $vechicle[0]->id,
             'user_vechicle_id' => $user_vechicle->id,
             'type_maintanance' => $maintanance[$key],
-            'next_maintance' => $date,
+            'next_maintanance' => $date,
         ]);
 
         $this->assertDatabaseCount('maintanances', 1);

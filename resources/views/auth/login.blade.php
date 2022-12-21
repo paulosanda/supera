@@ -44,4 +44,7 @@
             </x-primary-button>
         </div>
     </form>
+    <div class="flex items-center mt-4">
+      <a href={{ route('register')}}> Create new account </a>
+    </div>
 </x-guest-layout>

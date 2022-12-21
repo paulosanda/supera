@@ -13,6 +13,10 @@ use App\Traits\MaintananceTypes;
 class UserVechicleController extends Controller
 {
     use MaintananceTypes;
+    /**
+     * index
+     *
+     */
     public function index()
     {
         $uservechicles = User::with('vechicles')->where('id', Auth::user()->id)->get();
@@ -22,6 +26,10 @@ class UserVechicleController extends Controller
         return view('uservechicles', compact('uservechicles', 'vechicles', 'maintanance'));
     }
 
+    /**
+     * uservechicle
+     *
+     */
     public function uservechicle()
     {
         $uservechicles = User::with('vechicles')->where('id', Auth::user()->id)->get();
@@ -29,6 +37,11 @@ class UserVechicleController extends Controller
         return ($response);
     }
 
+    /**
+     * adduservechicle
+     *
+     * @param  mixed $request
+     */
     public function adduservechicle(Request $request)
     {
         $newvechicle = UserVechicle::create([
@@ -37,6 +50,10 @@ class UserVechicleController extends Controller
         ]);
         return response()->json($newvechicle, 200);
     }
+    /**
+     * maintanance
+     *
+     */
     public function maintanance()
     {
         $maintanance = Maintanance::with('vechicles')
@@ -48,6 +65,12 @@ class UserVechicleController extends Controller
         return view('dashboard', compact('maintanance'));
     }
 
+    /**
+     * destroy
+     *
+     * @param  mixed $id
+     * @return void
+     */
     public function destroy($id): void
     {
         UserVechicle::find($id)->delete();
