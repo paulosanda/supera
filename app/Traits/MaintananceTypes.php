@@ -4,7 +4,7 @@ namespace App\Traits;
 
 trait MaintananceTypes
 {
-    public function maintanance(): array
+    public function maintanancetypes(): array
     {
         return ([
             'oil',

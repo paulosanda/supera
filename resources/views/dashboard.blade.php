@@ -17,8 +17,8 @@
                         </thead>
                         @foreach ($maintanance as $m)
                             <tr>
-                                <td>{{ $m->vechicles[0]->brand .' - '. $m->vechicles[0]->model }}</td>
-                                <td> {{ date('d/m/Y', strtotime($m->next_maintance)) }}</td>
+                                <td>{{ $m->vechicles->brand .' - '. $m->vechicles->model }}</td>
+                                <td> {{ date('d/m/Y', strtotime($m->next_maintanance)) }}</td>
                                 <td>{{ $m->type_maintanance }}</td>
                             </tr>
                         @endforeach
